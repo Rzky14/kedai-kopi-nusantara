@@ -4,594 +4,611 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kedai Kopi Nusantara - Tempat terbaik untuk menikmati kopi premium berkualitas tinggi dengan suasana yang nyaman dan profesional">
+    <meta name="theme-color" content="#2a1a12">
     <title>Kedai Kopi Nusantara - Premium Coffee Experience</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#beranda">Lewati ke konten</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-coffee"></i>
-                <span>Kedai Kopi Nusantara</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#beranda" class="active">Beranda</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#galeri">Galeri</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#beranda" class="logo" aria-label="Kedai Kopi Nusantara - Beranda">
+                <span class="logo-mark"><i class="fas fa-coffee"></i></span>
+                <span class="logo-text">
+                    <strong>Kedai Kopi</strong>
+                    <small>Nusantara</small>
+                </span>
+            </a>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-badge" data-aos="fade-down">Premium Quality Since 2020</div>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Kedai Kopi Nusantara</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Where Every Cup Tells a Story</p>
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="600">Menghadirkan pengalaman kopi autentik dari biji pilihan terbaik Nusantara</p>
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
-                <a href="#menu" class="btn btn-primary"><i class="fas fa-coffee"></i> Eksplorasi Menu</a>
-                <a href="#kontak" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> Kunjungi Kami</a>
-            </div>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
-                <div class="stat-item">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Happy Customers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Menu Variants</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5★</div>
-                    <div class="stat-label">Rating</div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigasi utama">
+                <ul>
+                    <li><a href="#beranda" class="active">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                <a href="#kontak" class="btn btn-primary nav-cta">Kunjungi Kami</a>
+            </nav>
 
-    <!-- Tentang Section -->
-    <section id="tentang" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Our Story</span>
-                <h2>Tentang Kami</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Perjalanan kami dalam menghadirkan kopi berkualitas tinggi</p>
+            <button type="button" class="hamburger" id="hamburger" aria-label="Buka menu" aria-controls="nav-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="beranda" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="eyebrow">Premium Quality Since 2020</span>
+                    <h1 class="hero-title">Kedai Kopi Nusantara</h1>
+                    <p class="hero-subtitle">Where Every Cup Tells a Story</p>
+                    <p class="hero-description">Menghadirkan pengalaman kopi autentik dari biji pilihan terbaik Nusantara, disangrai dan diseduh dengan penuh perhatian.</p>
+                    <div class="hero-buttons">
+                        <a href="#menu" class="btn btn-primary"><i class="fas fa-mug-saucer"></i> Eksplorasi Menu</a>
+                        <a href="#kontak" class="btn btn-ghost"><i class="fas fa-location-dot"></i> Kunjungi Kami</a>
+                    </div>
+                    <div class="hero-stats" id="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1000" data-suffix="+">1000+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50" data-suffix="+">50+</span>
+                            <span class="stat-label">Menu Variants</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="5" data-suffix="★">5★</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right">
-                    <div class="about-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Kedai Kopi">
-                        <div class="image-pattern"></div>
+            <a href="#tentang" class="scroll-down" aria-label="Gulir ke bagian Tentang">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span>Kopi Premium</span><i class="fas fa-circle"></i>
+                    <span>Barista Ahli</span><i class="fas fa-circle"></i>
+                    <span>Dibuat dengan Cinta</span><i class="fas fa-circle"></i>
+                    <span>Biji Pilihan Nusantara</span><i class="fas fa-circle"></i>
+                    <span>Premium Quality Since 2020</span><i class="fas fa-circle"></i>
+                </div>
+                <div class="marquee-group">
+                    <span>Kopi Premium</span><i class="fas fa-circle"></i>
+                    <span>Barista Ahli</span><i class="fas fa-circle"></i>
+                    <span>Dibuat dengan Cinta</span><i class="fas fa-circle"></i>
+                    <span>Biji Pilihan Nusantara</span><i class="fas fa-circle"></i>
+                    <span>Premium Quality Since 2020</span><i class="fas fa-circle"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tentang Section -->
+        <section id="tentang" class="section about">
+            <div class="container about-grid">
+                <div class="about-media reveal">
+                    <div class="about-frame" aria-hidden="true"></div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=900" alt="Suasana Kedai Kopi Nusantara">
                     </div>
                     <div class="about-badge">
-                        <i class="fas fa-award"></i>
-                        <span>Sejak 2020</span>
-                    </div>
-                    <div class="about-experience">
-                        <div class="experience-number">5+</div>
-                        <div class="experience-text">Years<br>Experience</div>
+                        <span class="badge-number">5+</span>
+                        <span class="badge-text">Tahun<br>Pengalaman</span>
                     </div>
                 </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Cerita Kami</h3>
+
+                <div class="about-text reveal">
+                    <span class="section-label">Our Story</span>
+                    <h2 class="section-title">Cerita Kami</h2>
                     <p>Kedai Kopi Nusantara adalah tempat berkumpul yang sempurna untuk para pecinta kopi. Kami berkomitmen untuk menyajikan kopi berkualitas tinggi dari berbagai daerah di Indonesia dengan cita rasa yang autentik.</p>
                     <p>Setiap biji kopi dipilih dengan cermat dan disangrai dengan sempurna untuk menghasilkan secangkir kopi yang tak terlupakan. Kami percaya bahwa kopi bukan hanya minuman, tetapi juga pengalaman yang menghubungkan orang-orang.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-coffee"></i>
-                            <h4>Kopi Premium</h4>
-                            <p>Biji kopi pilihan terbaik</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-users"></i>
-                            <h4>Barista Ahli</h4>
-                            <p>Tim berpengalaman</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-heart"></i>
-                            <h4>Dibuat dengan Cinta</h4>
-                            <p>Setiap cup penuh perhatian</p>
-                        </div>
+
+                    <ul class="about-features">
+                        <li class="feature">
+                            <span class="feature-icon"><i class="fas fa-coffee"></i></span>
+                            <div>
+                                <h3>Kopi Premium</h3>
+                                <p>Biji kopi pilihan terbaik</p>
+                            </div>
+                        </li>
+                        <li class="feature">
+                            <span class="feature-icon"><i class="fas fa-users"></i></span>
+                            <div>
+                                <h3>Barista Ahli</h3>
+                                <p>Tim berpengalaman</p>
+                            </div>
+                        </li>
+                        <li class="feature">
+                            <span class="feature-icon"><i class="fas fa-heart"></i></span>
+                            <div>
+                                <h3>Dibuat dengan Cinta</h3>
+                                <p>Setiap cup penuh perhatian</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="section menu">
+            <div class="container">
+                <header class="section-header reveal">
+                    <span class="section-label">Our Menu</span>
+                    <h2 class="section-title">Menu Spesial Kami</h2>
+                    <p class="section-subtitle">Pilihan kopi dan minuman premium yang dibuat oleh barista profesional</p>
+                </header>
+
+                <div class="menu-tabs" role="tablist" aria-label="Kategori menu">
+                    <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="coffee" data-tab="coffee">Kopi</button>
+                    <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="non-coffee" data-tab="non-coffee">Non-Kopi</button>
+                    <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="food" data-tab="food">Makanan</button>
+                </div>
+
+                <div class="menu-content">
+                    <!-- Coffee Menu -->
+                    <div class="menu-grid active" id="coffee" role="tabpanel">
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Espresso">
+                                <span class="menu-badge">Popular</span>
+                            </div>
+                            <div class="menu-info">
+                                <h3>Espresso</h3>
+                                <p>Shot espresso murni dengan rasa kuat dan aroma khas</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 18.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1568585219057-c9c82c8f8b58?w=600" alt="Cappuccino">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Cappuccino</h3>
+                                <p>Espresso dengan susu steamed dan foam lembut</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 25.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600" alt="Caffe Latte">
+                                <span class="menu-badge">Best Seller</span>
+                            </div>
+                            <div class="menu-info">
+                                <h3>Caffe Latte</h3>
+                                <p>Espresso dengan susu steamed dan sedikit foam</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 28.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600" alt="Americano">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Americano</h3>
+                                <p>Espresso dengan air panas, rasa ringan dan nikmat</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 22.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600" alt="Kopi Susu Nusantara">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Kopi Susu Nusantara</h3>
+                                <p>Kopi lokal dengan susu segar dan gula aren</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 20.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1578374173705-c08e6e1df2c7?w=600" alt="Vietnamese Coffee">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Vietnamese Coffee</h3>
+                                <p>Kopi Vietnam dengan susu kental manis</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 26.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Non-Coffee Menu -->
+                    <div class="menu-grid" id="non-coffee" role="tabpanel">
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600" alt="Matcha Latte">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Matcha Latte</h3>
+                                <p>Teh hijau matcha premium dengan susu</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 30.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600" alt="Hot Chocolate">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Hot Chocolate</h3>
+                                <p>Cokelat panas premium dengan marshmallow</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 28.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600" alt="Lemon Tea">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Lemon Tea</h3>
+                                <p>Teh segar dengan perasan lemon</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 18.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600" alt="Fruit Smoothie">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Fruit Smoothie</h3>
+                                <p>Smoothie buah segar pilihan</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 32.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Food Menu -->
+                    <div class="menu-grid" id="food" role="tabpanel">
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Croissant">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Croissant</h3>
+                                <p>Croissant butter premium yang renyah</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 22.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=600" alt="Club Sandwich">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Club Sandwich</h3>
+                                <p>Sandwich lapis dengan isian lengkap</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 35.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600" alt="Chocolate Cake">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Chocolate Cake</h3>
+                                <p>Kue cokelat lembut dengan ganache</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 28.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="menu-card">
+                            <div class="menu-image">
+                                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600" alt="Belgian Waffle">
+                            </div>
+                            <div class="menu-info">
+                                <h3>Belgian Waffle</h3>
+                                <p>Waffle crispy dengan topping pilihan</p>
+                                <div class="menu-footer">
+                                    <span class="price">Rp 32.000</span>
+                                    <button type="button" class="btn-order">Pesan</button>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu">
-        <div class="menu-pattern"></div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Our Menu</span>
-                <h2>Menu Spesial Kami</h2>
-                <div class="divider"></div>
-                <p>Pilihan kopi dan minuman premium yang dibuat oleh barista profesional</p>
-            </div>
-            
-            <div class="menu-tabs">
-                <button class="tab-btn active" data-tab="coffee">Kopi</button>
-                <button class="tab-btn" data-tab="non-coffee">Non-Kopi</button>
-                <button class="tab-btn" data-tab="food">Makanan</button>
-            </div>
+        <!-- Gallery Section -->
+        <section id="galeri" class="section gallery">
+            <div class="container">
+                <header class="section-header reveal">
+                    <span class="section-label">Gallery</span>
+                    <h2 class="section-title">Galeri Kami</h2>
+                    <p class="section-subtitle">Momen-momen indah di kedai kami</p>
+                </header>
 
-            <div class="menu-content">
-                <!-- Coffee Menu -->
-                <div class="menu-grid active" id="coffee">
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Espresso">
-                            <div class="menu-badge">Popular</div>
-                        </div>
-                        <div class="menu-info">
-                            <h3>Espresso</h3>
-                            <p>Shot espresso murni dengan rasa kuat dan aroma khas</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 18.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1568585219057-c9c82c8f8b58?w=400" alt="Cappuccino">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Cappuccino</h3>
-                            <p>Espresso dengan susu steamed dan foam lembut</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 25.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400" alt="Latte">
-                            <div class="menu-badge">Best Seller</div>
-                        </div>
-                        <div class="menu-info">
-                            <h3>Caffe Latte</h3>
-                            <p>Espresso dengan susu steamed dan sedikit foam</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 28.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400" alt="Americano">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Americano</h3>
-                            <p>Espresso dengan air panas, rasa ringan dan nikmat</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 22.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=400" alt="Kopi Susu">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Kopi Susu Nusantara</h3>
-                            <p>Kopi lokal dengan susu segar dan gula aren</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 20.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1578374173705-c08e6e1df2c7?w=400" alt="Vietnamese Coffee">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Vietnamese Coffee</h3>
-                            <p>Kopi Vietnam dengan susu kental manis</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 26.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="gallery-grid">
+                    <button type="button" class="gallery-item gallery-wide reveal" aria-label="Perbesar foto Interior">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900" alt="Interior">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
+                    <button type="button" class="gallery-item reveal" aria-label="Perbesar foto Coffee Art">
+                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600" alt="Coffee Art">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
+                    <button type="button" class="gallery-item reveal" aria-label="Perbesar foto Workspace">
+                        <img src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?w=600" alt="Workspace">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
+                    <button type="button" class="gallery-item reveal" aria-label="Perbesar foto Coffee Beans">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Coffee Beans">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
+                    <button type="button" class="gallery-item reveal" aria-label="Perbesar foto Barista">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Barista">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
+                    <button type="button" class="gallery-item gallery-wide reveal" aria-label="Perbesar foto Coffee Cup">
+                        <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=900" alt="Coffee Cup">
+                        <span class="gallery-overlay"><i class="fas fa-magnifying-glass-plus"></i></span>
+                    </button>
                 </div>
+            </div>
+        </section>
 
-                <!-- Non-Coffee Menu -->
-                <div class="menu-grid" id="non-coffee">
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="Matcha Latte">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Matcha Latte</h3>
-                            <p>Teh hijau matcha premium dengan susu</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 30.000</span>
-                                <button class="btn-order">Pesan</button>
+        <!-- Testimonial Section -->
+        <section id="testimoni" class="section testimonials">
+            <div class="container">
+                <header class="section-header reveal">
+                    <span class="section-label">Testimonials</span>
+                    <h2 class="section-title">Apa Kata Mereka</h2>
+                    <p class="section-subtitle">Kepuasan pelanggan adalah prioritas kami</p>
+                </header>
+
+                <div class="testimonial-grid">
+                    <article class="testimonial-card reveal">
+                        <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+                        <p class="testimonial-text">Kopi terbaik yang pernah saya coba! Suasananya sangat nyaman dan cocok untuk bekerja. Pelayanannya juga ramah.</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="" width="48" height="48">
+                            <div>
+                                <h3>Budi Santoso</h3>
+                                <div class="rating" role="img" aria-label="Rating 5 dari 5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400" alt="Chocolate">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Hot Chocolate</h3>
-                            <p>Cokelat panas premium dengan marshmallow</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 28.000</span>
-                                <button class="btn-order">Pesan</button>
+                    <article class="testimonial-card reveal">
+                        <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+                        <p class="testimonial-text">Tempat favorit untuk meeting dengan klien. Kopinya enak, makanannya juga lezat. Recommended banget!</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="" width="48" height="48">
+                            <div>
+                                <h3>Siti Nurhaliza</h3>
+                                <div class="rating" role="img" aria-label="Rating 5 dari 5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400" alt="Lemon Tea">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Lemon Tea</h3>
-                            <p>Teh segar dengan perasan lemon</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 18.000</span>
-                                <button class="btn-order">Pesan</button>
+                    <article class="testimonial-card reveal">
+                        <i class="fas fa-quote-left quote-icon" aria-hidden="true"></i>
+                        <p class="testimonial-text">Barista-nya profesional dan friendly. Mereka tahu cara membuat kopi yang sempurna. Pasti balik lagi!</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pravatar.cc/150?img=8" alt="" width="48" height="48">
+                            <div>
+                                <h3>Ahmad Rizki</h3>
+                                <div class="rating" role="img" aria-label="Rating 5 dari 5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400" alt="Smoothie">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Fruit Smoothie</h3>
-                            <p>Smoothie buah segar pilihan</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 32.000</span>
-                                <button class="btn-order">Pesan</button>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
+            </div>
+        </section>
 
-                <!-- Food Menu -->
-                <div class="menu-grid" id="food">
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Croissant">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Croissant</h3>
-                            <p>Croissant butter premium yang renyah</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 22.000</span>
-                                <button class="btn-order">Pesan</button>
+        <!-- Contact Section -->
+        <section id="kontak" class="section contact">
+            <div class="container">
+                <header class="section-header reveal">
+                    <span class="section-label">Get In Touch</span>
+                    <h2 class="section-title">Hubungi Kami</h2>
+                    <p class="section-subtitle">Kami siap melayani Anda dengan sepenuh hati</p>
+                </header>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3>Informasi Kontak</h3>
+
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-location-dot"></i></span>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. Kopi Nusantara No. 123<br>Jakarta Selatan, 12345</p>
                             </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-phone"></i></span>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p><a href="tel:+6281234567890">+62&nbsp;812&#8209;3456&#8209;7890</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-envelope"></i></span>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@kedaikopinusantara.com">info@kedaikopinusantara.com</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon"><i class="fas fa-clock"></i></span>
+                            <div>
+                                <h4>Jam Buka</h4>
+                                <p>Senin - Jumat: 07:00 - 22:00<br>Sabtu - Minggu: 08:00 - 23:00</p>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                        </a>
+
+                        <div class="social-links" role="group" aria-label="Media sosial">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
 
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=400" alt="Sandwich">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Club Sandwich</h3>
-                            <p>Sandwich lapis dengan isian lengkap</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 35.000</span>
-                                <button class="btn-order">Pesan</button>
+                    <div class="contact-form reveal">
+                        <h3>Kirim Pesan</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="c-name">Nama</label>
+                                <input type="text" id="c-name" name="name" placeholder="Nama Anda" autocomplete="name" required>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Cake">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Chocolate Cake</h3>
-                            <p>Kue cokelat lembut dengan ganache</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 28.000</span>
-                                <button class="btn-order">Pesan</button>
+                            <div class="form-group">
+                                <label for="c-email">Email</label>
+                                <input type="email" id="c-email" name="email" placeholder="Email Anda" autocomplete="email" required>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-card">
-                        <div class="menu-image">
-                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400" alt="Waffle">
-                        </div>
-                        <div class="menu-info">
-                            <h3>Belgian Waffle</h3>
-                            <p>Waffle crispy dengan topping pilihan</p>
-                            <div class="menu-footer">
-                                <span class="price">Rp 32.000</span>
-                                <button class="btn-order">Pesan</button>
+                            <div class="form-group">
+                                <label for="c-phone">Nomor Telepon</label>
+                                <input type="tel" id="c-phone" name="phone" placeholder="Nomor Telepon" autocomplete="tel">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="c-message">Pesan</label>
+                                <textarea id="c-message" name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Kirim Pesan</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="galeri" class="gallery">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Gallery</span>
-                <h2>Galeri Kami</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Momen-momen indah di kedai kami</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Interior">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600" alt="Coffee Art">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?w=600" alt="Workspace">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Coffee Beans">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Barista">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=600" alt="Coffee Cup">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section class="testimonials">
-        <div class="testimonial-bg"></div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Testimonials</span>
-                <h2>Apa Kata Mereka</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Kepuasan pelanggan adalah prioritas kami</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">"Kopi terbaik yang pernah saya coba! Suasananya sangat nyaman dan cocok untuk bekerja. Pelayanannya juga ramah."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Budi">
-                        </div>
-                        <div class="author-info">
-                            <h4>Budi Santoso</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">"Tempat favorit untuk meeting dengan klien. Kopinya enak, makanannya juga lezat. Recommended banget!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://i.pravatar.cc/150?img=5" alt="Siti">
-                        </div>
-                        <div class="author-info">
-                            <h4>Siti Nurhaliza</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    <p class="testimonial-text">"Barista-nya profesional dan friendly. Mereka tahu cara membuat kopi yang sempurna. Pasti balik lagi!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://i.pravatar.cc/150?img=8" alt="Ahmad">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ahmad Rizki</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="kontak" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Get In Touch</span>
-                <h2>Hubungi Kami</h2>
-                <div class="divider"></div>
-                <p class="section-subtitle">Kami siap melayani Anda dengan sepenuh hati</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Informasi Kontak</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Alamat</h4>
-                            <p>Jl. Kopi Nusantara No. 123<br>Jakarta Selatan, 12345</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telepon</h4>
-                            <p>+62 812-3456-7890</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@kedaikopinusantara.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Jam Buka</h4>
-                            <p>Senin - Jumat: 07:00 - 22:00<br>
-                            Sabtu - Minggu: 08:00 - 23:00</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Kirim Pesan</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Nomor Telepon">
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="5" placeholder="Pesan Anda" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-coffee"></i> Kedai Kopi Nusantara</h3>
-                    <p>Tempat terbaik untuk menikmati kopi berkualitas dengan suasana yang nyaman dan ramah.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Link Cepat</h4>
-                    <ul>
-                        <li><a href="#beranda">Beranda</a></li>
-                        <li><a href="#tentang">Tentang</a></li>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#kontak">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="#">Dine In</a></li>
-                        <li><a href="#">Take Away</a></li>
-                        <li><a href="#">Delivery</a></li>
-                        <li><a href="#">Catering</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Dapatkan update terbaru dan promo spesial</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Email Anda">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#beranda" class="logo" aria-label="Kedai Kopi Nusantara - Beranda">
+                    <span class="logo-mark"><i class="fas fa-coffee"></i></span>
+                    <span class="logo-text">
+                        <strong>Kedai Kopi</strong>
+                        <small>Nusantara</small>
+                    </span>
+                </a>
+                <p>Tempat terbaik untuk menikmati kopi berkualitas dengan suasana yang nyaman dan ramah.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Kedai Kopi Nusantara. All Rights Reserved.</p>
+
+            <div class="footer-col">
+                <h4>Link Cepat</h4>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#tentang">Dine In</a></li>
+                    <li><a href="#menu">Take Away</a></li>
+                    <li><a href="#kontak">Delivery</a></li>
+                    <li><a href="#kontak">Catering</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Dapatkan update terbaru dan promo spesial</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <label for="n-email" class="sr-only">Email</label>
+                    <input type="email" id="n-email" placeholder="Email Anda" required>
+                    <button type="submit" aria-label="Berlangganan"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; <span id="year">2024</span> Kedai Kopi Nusantara. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
+    <button type="button" class="scroll-top" id="scrollTop" aria-label="Kembali ke atas">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto" hidden>
+        <button type="button" class="lightbox-close" aria-label="Tutup">&times;</button>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

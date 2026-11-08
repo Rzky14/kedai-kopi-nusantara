@@ -1,285 +1,286 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+/* ==========================================================================
+   Kedai Kopi Nusantara — Interaktivitas
+   ========================================================================== */
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animate hamburger
-    hamburger.classList.toggle('active');
-});
+(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-// Close menu when clicking on a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    });
-});
-
-// Active navigation on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+    /* ---------- Fallback jika foto gagal dimuat ---------- */
+    const FALLBACK_PARENTS = '.menu-image, .about-image, .gallery-item';
+    const markBroken = (img) => {
+        img.classList.add('is-broken');
+        const parent = img.closest(FALLBACK_PARENTS);
+        if (parent) parent.classList.add('img-fallback');
+    };
+    $$('img').forEach((img) => {
+        if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+            markBroken(img);
+        } else {
+            img.addEventListener('error', () => markBroken(img), { once: true });
         }
     });
-    
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
+
+    /* ---------- Tahun otomatis di footer ---------- */
+    const yearEl = $('#year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ---------- Navigasi mobile ---------- */
+    const hamburger = $('#hamburger');
+    const navMenu = $('#nav-menu');
+
+    const setMenu = (open) => {
+        navMenu.classList.toggle('active', open);
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        hamburger.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', () => {
+        setMenu(!navMenu.classList.contains('active'));
+    });
+
+    // Tutup menu saat tautan dipilih atau tombol Escape ditekan
+    $$('.nav-menu a').forEach((link) => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            setMenu(false);
+            closeLightbox();
         }
     });
-});
 
-// Menu Tabs
-const tabBtns = document.querySelectorAll('.tab-btn');
-const menuGrids = document.querySelectorAll('.menu-grid');
+    /* ---------- Navbar berubah saat digulir ---------- */
+    const navbar = $('#navbar');
+    const onScrollNavbar = () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    };
 
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons and grids
-        tabBtns.forEach(b => b.classList.remove('active'));
-        menuGrids.forEach(grid => grid.classList.remove('active'));
-        
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        // Show corresponding menu grid
-        const tabId = btn.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
+    /* ---------- Tombol kembali ke atas ---------- */
+    const scrollTopBtn = $('#scrollTop');
+    const onScrollTopBtn = () => {
+        scrollTopBtn.classList.toggle('show', window.scrollY > 400);
+    };
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
-});
 
-// Order Button Handler
-document.querySelectorAll('.btn-order').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const menuItem = this.closest('.menu-card').querySelector('h3').textContent;
-        const price = this.closest('.menu-card').querySelector('.price').textContent;
-        
-        // Simple alert for demo purposes
-        alert(`Terima kasih! Anda memesan:\n${menuItem}\nHarga: ${price}\n\nSilakan hubungi kami untuk melanjutkan pesanan.`);
-        
-        // In a real application, you would handle the order here
-        // For example, add to cart, open order form, etc.
-    });
-});
+    /* ---------- Tautan aktif sesuai bagian yang terlihat ---------- */
+    const navLinks = $$('.nav-menu a[href^="#"]');
+    const sections = navLinks
+        .map((link) => $(link.getAttribute('href')))
+        .filter(Boolean);
 
-// Contact Form Handler
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            name: this.querySelector('input[type="text"]').value,
-            email: this.querySelector('input[type="email"]').value,
-            phone: this.querySelector('input[type="tel"]').value,
-            message: this.querySelector('textarea').value
-        };
-        
-        // Simple alert for demo purposes
-        alert(`Terima kasih ${formData.name}!\n\nPesan Anda telah diterima. Kami akan menghubungi Anda segera.`);
-        
-        // Reset form
-        this.reset();
-        
-        // In a real application, you would send this data to a server
-    });
-}
+    const setActiveLink = (id) => {
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+    };
 
-// Newsletter Form Handler
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = this.querySelector('input[type="email"]').value;
-        
-        alert(`Terima kasih!\n\nAnda telah berlangganan newsletter dengan email: ${email}`);
-        
-        this.reset();
-    });
-}
-
-// Scroll to Top Button
-const scrollTopBtn = document.getElementById('scrollTop');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Smooth Scrolling for all links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
-            
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+    if ('IntersectionObserver' in window && sections.length) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) setActiveLink(entry.target.id);
             });
-        }
-    });
-});
+        }, { rootMargin: '-45% 0px -50% 0px' });
 
-// Gallery Image Click Handler (Simple Zoom Effect)
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        const imgSrc = img.getAttribute('src');
-        
-        // Create modal overlay
-        const modal = document.createElement('div');
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            cursor: pointer;
-        `;
-        
-        const modalImg = document.createElement('img');
-        modalImg.src = imgSrc;
-        modalImg.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
-        `;
-        
-        modal.appendChild(modalImg);
-        document.body.appendChild(modal);
-        
-        // Close modal on click
-        modal.addEventListener('click', () => {
-            document.body.removeChild(modal);
+        sections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    // Gabungkan event scroll dalam satu handler (lebih ringan)
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            onScrollNavbar();
+            onScrollTopBtn();
+            ticking = false;
+        });
+    }, { passive: true });
+
+    onScrollNavbar();
+    onScrollTopBtn();
+
+    /* ---------- Menu tabs (Kopi / Non-Kopi / Makanan) ---------- */
+    const tabBtns = $$('.tab-btn');
+    const menuGrids = $$('.menu-grid');
+
+    const activateTab = (btn) => {
+        tabBtns.forEach((b) => {
+            const isActive = b === btn;
+            b.classList.toggle('active', isActive);
+            b.setAttribute('aria-selected', String(isActive));
+            b.tabIndex = isActive ? 0 : -1;
+        });
+
+        menuGrids.forEach((grid) => {
+            grid.classList.toggle('active', grid.id === btn.dataset.tab);
+        });
+    };
+
+    tabBtns.forEach((btn) => {
+        btn.addEventListener('click', () => activateTab(btn));
+    });
+
+    // Navigasi panah kiri/kanan antar tab
+    $('.menu-tabs')?.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const current = tabBtns.findIndex((b) => b.classList.contains('active'));
+        const delta = e.key === 'ArrowRight' ? 1 : -1;
+        const next = tabBtns[(current + delta + tabBtns.length) % tabBtns.length];
+        next.focus();
+        activateTab(next);
+    });
+
+    /* ---------- Nomor WhatsApp & pembuka pesan ---------- */
+    const WA_NUMBER = '6281234567890';
+    const openWhatsApp = (text) => {
+        const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank', 'noopener');
+    };
+
+    /* ---------- Tombol pesan (diteruskan ke WhatsApp) ---------- */
+    $$('.btn-order').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.menu-card');
+            const menuItem = card.querySelector('h3').textContent;
+            const price = card.querySelector('.price').textContent;
+
+            openWhatsApp(`Halo Kedai Kopi Nusantara, saya ingin memesan ${menuItem} (${price}).`);
         });
     });
-});
 
-// Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+    /* ---------- Form kontak ---------- */
+    const contactForm = $('#contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+            const name = contactForm.elements.name.value.trim();
+            const email = contactForm.elements.email.value.trim();
+            const phone = contactForm.elements.phone.value.trim();
+            const message = contactForm.elements.message.value.trim();
+
+            const text = [
+                'Halo Kedai Kopi Nusantara,',
+                message,
+                '',
+                `Nama: ${name}`,
+                `Email: ${email}`,
+                phone ? `Telepon: ${phone}` : null
+            ].filter(Boolean).join('\n');
+
+            openWhatsApp(text);
+            contactForm.reset();
+        });
+    }
+
+    /* ---------- Newsletter ---------- */
+    const newsletterForm = $('#newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = newsletterForm.querySelector('input[type="email"]').value.trim();
+
+            alert(`Terima kasih!\n\nAnda telah berlangganan newsletter dengan email: ${email}`);
+            newsletterForm.reset();
+        });
+    }
+
+    /* ---------- Lightbox galeri ---------- */
+    const lightbox = $('#lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    let lastFocused = null;
+
+    function openLightbox(src, alt) {
+        lastFocused = document.activeElement;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.hidden = false;
+        lightboxClose.focus();
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+    }
+
+    $$('.gallery-item').forEach((item) => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            openLightbox(img.currentSrc || img.src, img.alt);
+        });
     });
-}, observerOptions);
 
-// Observe all menu cards, gallery items, testimonial cards
-document.querySelectorAll('.menu-card, .gallery-item, .testimonial-card, .feature').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
+    lightbox.addEventListener('click', closeLightbox);
 
-// Initialize AOS (Animate On Scroll)
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100,
-    easing: 'ease-out-cubic'
-});
+    /* ---------- Animasi muncul saat digulir ---------- */
+    const revealEls = $$('.reveal');
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-});
-
-// Navbar background change on scroll
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('in'));
     } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrolled = window.pageYOffset;
-        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-    }
-});
-
-// Counter animation for stats
-const animateCounter = (element, target, duration = 2000) => {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target + (element.dataset.suffix || '');
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start) + (element.dataset.suffix || '');
-        }
-    }, 16);
-};
-
-// Trigger counter animation when stats are visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            const numbers = entry.target.querySelectorAll('.stat-number');
-            numbers.forEach(num => {
-                const target = parseInt(num.textContent);
-                const suffix = num.textContent.includes('+') ? '+' : (num.textContent.includes('★') ? '★' : '');
-                num.dataset.suffix = suffix;
-                animateCounter(num, target, 2000);
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('in');
+                obs.unobserve(entry.target);
             });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach((el, i) => {
+            // Jeda kecil berurutan untuk elemen dalam satu grup
+            el.style.transitionDelay = `${(i % 3) * 90}ms`;
+            revealObserver.observe(el);
+        });
+    }
+
+    /* ---------- Counter statistik ---------- */
+    const animateCounter = (el) => {
+        const target = Number(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+
+        const frame = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (progress < 1) requestAnimationFrame(frame);
+        };
+
+        requestAnimationFrame(frame);
+    };
+
+    const statsEl = $('#hero-stats');
+    if (statsEl) {
+        const numbers = $$('.stat-number', statsEl);
+
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            // Tampilkan nilai akhir apa adanya
+        } else {
+            const statsObserver = new IntersectionObserver((entries, obs) => {
+                if (!entries[0].isIntersecting) return;
+                numbers.forEach((el) => {
+                    el.textContent = '0' + (el.dataset.suffix || '');
+                    animateCounter(el);
+                });
+                obs.disconnect();
+            }, { threshold: 0.5 });
+
+            statsObserver.observe(statsEl);
         }
-    });
-}, { threshold: 0.5 });
-
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) {
-    statsObserver.observe(heroStats);
-}
-
-console.log('Kedai Kopi Nusantara - Premium Website loaded successfully! ☕');
+    }
+})();
